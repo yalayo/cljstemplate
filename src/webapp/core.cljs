@@ -3,24 +3,18 @@
    [goog.dom :as gdom]
    [reagent.core :as reagent :refer [atom]]))
 
-(println "This text is printed from src/webapp/core.cljs. Go ahead and edit it and see reloading in action.")
-
-(defn multiply [a b] (* a b))
-
-
 ;; define your app data so that it doesn't get over-written on reload
-(defonce app-state (atom {:text "Hello world!"}))
+(defonce app-state (atom {:text "Let's do this!"}))
 
 (defn get-app-element []
   (gdom/getElement "app"))
 
-(defn hello-world []
+(defn main-component []
   [:div
-   [:h1 (:text @app-state)]
-   [:h3 "Edit this in src/webapp/core.cljs and watch it change!"]])
+   [:h1 (:text @app-state)]])
 
 (defn mount [el]
-  (reagent/render-component [hello-world] el))
+  (reagent/render-component [main-component] el))
 
 (defn mount-app-element []
   (when-let [el (get-app-element)]

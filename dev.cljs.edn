@@ -1,4 +1,7 @@
 ^{:watch-dirs ["test" "src"]
   :css-dirs ["resources/public/css"]
-  :auto-testing true}
-{:main webapp.core}
+  :auto-testing true
+  :auto-testing true
+  :extra-main-files {:cards {:main webapp.cards}}}
+{:main webapp.core
+ :devcards true}
