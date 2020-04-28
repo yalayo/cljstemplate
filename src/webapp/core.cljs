@@ -1,7 +1,9 @@
 (ns ^:figwheel-hooks webapp.core
   (:require
    [goog.dom :as gdom]
-   [reagent.core :as reagent :refer [atom]]))
+   [reagent.core :as reagent :refer [atom]]
+   [reagent.dom :as rdom]
+   [district0x.re-frame.google-analytics-fx]))
 
 ;; define your app data so that it doesn't get over-written on reload
 (defonce app-state (atom {:text "Let's do this!"}))
@@ -14,7 +16,7 @@
    [:h1 (:text @app-state)]])
 
 (defn mount [el]
-  (reagent/render-component [main-component] el))
+  (rdom/render [main-component] el))
 
 (defn mount-app-element []
   (when-let [el (get-app-element)]
@@ -30,4 +32,7 @@
   ;; optionally touch your app-state to force rerendering depending on
   ;; your application
   ;; (swap! app-state update-in [:__figwheel_counter] inc)
-)
+  )
+
+;; To Disable GA while developing:
+(district0x.re-frame.google-analytics-fx/set-enabled! (not goog.DEBUG))
