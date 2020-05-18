@@ -14,7 +14,7 @@
                    org.clojure/test.check {:mvn/version "0.10.0"}
                    org.clojure/spec.alpha {:mvn/version "0.2.187"}}
                  :extra-paths ["target" "test"]}
-           :build {:main-opts ["-m" "figwheel.main" "-o" "target/public/main.js" "-b" "dev" "-r"]}
+           :build {:main-opts ["-m" "figwheel.main" "-o" "-b" "dev" "-r"]}
            :min   {:main-opts ["-m" "figwheel.main" "-o" "dist/main.js" "-O" "advanced" "-bo" "dev"]}
            :test  {:main-opts ["-m" "figwheel.main" "-co" "test.cljs.edn" "-m" "webapp.test-runner"]}
            :synth {:main-opts ["-m" "stedi.cdk.main" "synth"]}
